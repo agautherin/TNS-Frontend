@@ -8,7 +8,7 @@ const TriviaScreen = ({navigation}) => {
         <Text>This is the trivia screen!  This feature of the app will consist of a way to practice your knowledge of DMV Questions.</Text>
         <Button 
             title="Start Trivia Questions now"
-            onPress={() => navigation.navigate('')}
+            onPress={() => navigation.navigate('Question')}
         />
         </View>
     )

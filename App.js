@@ -5,11 +5,13 @@ import {createAppContainer}  from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack'
 import HomeScreen from './src/screens/HomeScreen'
 import TriviaScreen from './src/screens/TriviaScreen'
+import QuestionsScreen from './src/screens/QuestionsScreen'
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Trivia: TriviaScreen
+    Trivia: TriviaScreen,
+    Question: QuestionsScreen
   },
   {
     initialRouteName: 'Home',
