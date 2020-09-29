@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import Choice from './Choice'
 
 class TriviaQuestion extends Component{
@@ -13,6 +13,7 @@ class TriviaQuestion extends Component{
     }
 
     clickAnswer = (choice) => {
+        
         if (this.state.showAnswer === true){
             if (this.state.correct[this.state.correct.length - 1] === this.props.correct){
                 console.log('correct')
@@ -26,7 +27,6 @@ class TriviaQuestion extends Component{
                     showAnswer: false,
                     newArr: false
                 }, this.props.nextQuestion(0))
-                
             }
         } else {
             if (choice === this.props.correct){
@@ -83,11 +83,15 @@ class TriviaQuestion extends Component{
 
     render(){
         this.mixUpArr()
-        // console.log(this.props.choicesObj)
+        // console.log(this.state.choices, this.state.showAnswer)
         return(
             <View>
                 <Text>{this.props.question}</Text>
-                {this.state.choices.map(c => <Choice clickAnswer={this.clickAnswer} choiceObj={c} correct={this.props.correct} showAnswer={this.state.showAnswer} newArr={this.state.newArr}/>)}
+                {/* <FlatList
+                    data={this.state.choices}
+                    key={}
+                /> */}
+                {this.state.choices.map(c => <Choice clickAnswer={this.clickAnswer} choiceObj={c} correct={this.props.correct} showAnswer={this.state.showAnswer} newArr={this.state.newArr} key={c}/>)}
             </View> 
         )
     }

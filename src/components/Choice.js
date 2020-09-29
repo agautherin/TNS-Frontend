@@ -3,31 +3,19 @@ import {View, Text, ScrollView} from 'react-native';
 
 class Choice extends Component{
     state = {
-        choice: '',
-        color: ''
+        choice: ''
     }
 
-    _renderColor = (choice) => {
-        
-        
-        if (!this.props.showAnswer){
-            if ( choice === this.props.correct){
-                this.setState({
-                    color: 'green',
-                    choice: choice
-                }, () => this.props.clickAnswer(this.state.choice))
-            } else if (choice !== this.props.correct) {
-                this.setState({
-                    color: 'red',
-                    choice: choice
+    renderColor = (choice) => {
+        if (this.props.showAnswer === false){
+            this.setState({
+                choice: choice
             }, () => this.props.clickAnswer(this.state.choice))
         } else {
-                // debugger
-                this.setState({
-                    choice: '',
-                    color: 'white'
-                }, () => this.props.clickAnswer(this.state.choice))
-            }
+            // debugger
+            this.setState({
+                choice: ''
+            }, () => this.props.clickAnswer(this.state.choice))
         }
     }
 
@@ -50,7 +38,7 @@ class Choice extends Component{
         // console.log(this.props)
         return(
             <View >
-                <Text onPress={() => this._renderColor(this.props.choiceObj)} style={{backgroundColor: this.color()}}>{this.props.choiceObj}</Text>
+                <Text onPress={() => this.renderColor(this.props.choiceObj)} style={{backgroundColor: this.color()}}>{this.props.choiceObj}</Text>
             </View>
         )
     }

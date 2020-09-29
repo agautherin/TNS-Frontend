@@ -3,6 +3,8 @@ import {View, Text} from 'react-native';
 import TriviaQuestion from '../components/TriviaQuestion';
 import ResultsScreen from '../screens/ResultsScreen'
 import {HOST_WITH_PORT} from '../../environment'
+import TriviaScreen from './TriviaScreen'
+
 
 
 class QuestionsScreen extends Component{
@@ -34,11 +36,11 @@ class QuestionsScreen extends Component{
             trivia: null,
             i: 0,
             numberCorrect: 0
-        })
+        }, () => {this.props.navigation.navigate('Trivia')})
     }
 
     render(){
-        // console.log(this.state.data)
+        // console.log(this.props.navigation)
         // debugger
         return(
             <View>

@@ -6,14 +6,13 @@ import {createStackNavigator} from 'react-navigation-stack'
 import HomeScreen from './src/screens/HomeScreen'
 import TriviaScreen from './src/screens/TriviaScreen'
 import QuestionsScreen from './src/screens/QuestionsScreen'
-import ResultsScreen from './src/screens/ResultsScreen'
+
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
     Trivia: TriviaScreen,
-    Question: QuestionsScreen,
-    Result: ResultsScreen
+    Question: QuestionsScreen
   },
   {
     initialRouteName: 'Home',
