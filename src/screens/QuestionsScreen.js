@@ -22,10 +22,10 @@ class QuestionsScreen extends Component{
         .then(data => this.setState({trivia: data.question, takingQuiz: true}))
     }
 
-    nextQuestion = (num) => {
+    nextQuestion = (num1, num2) => {
         this.setState({
-            i: this.state.i += 1,
-            numberCorrect: this.state.numberCorrect += num
+            i: this.state.i += num2,
+            numberCorrect: this.state.numberCorrect += num1
         }, () => {})
     
     }
@@ -45,16 +45,16 @@ class QuestionsScreen extends Component{
         return(
             <View>
                 {
-                    this.state.takingQuiz && this.state.trivia.length === this.state.i
+                    this.state.takingQuiz && this.state.trivia.length === this.state.i 
                     ?
                     <ResultsScreen 
                         newQuiz={this.newQuiz} 
                         correct={this.state.numberCorrect} 
-                        allQuestions={this.state.i} 
+                        i={this.state.i} 
                         trivia={this.state.trivia}
                     />
                     :
-                    this.state.takingQuiz 
+                    this.state.takingQuiz
                     ? 
                     this.state.trivia[this.state.i].map(trivia => 
                         <TriviaQuestion 
@@ -62,6 +62,8 @@ class QuestionsScreen extends Component{
                             choices={trivia.choices} 
                             correct={trivia.choices.correct} 
                             nextQuestion={this.nextQuestion}
+                            i={this.state.i}
+                            numberCorrect={this.state.numberCorrect}
                         />
                     )
                     :

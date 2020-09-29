@@ -20,13 +20,24 @@ class TriviaQuestion extends Component{
                 this.setState({
                     showAnswer: false,
                     newArr: false
-                }, this.props.nextQuestion(1))
+                }, this.props.numberCorrect === 21
+                ?
+                this.props.nextQuestion(25 - this.props.numberCorrect, 25 - this.props.i)
+                :
+                this.props.nextQuestion(1, 1))
             } else {
                 console.log('incorrect')
                 this.setState({
                     showAnswer: false,
                     newArr: false
-                }, this.props.nextQuestion(0))
+                }, this.props.i - this.props.numberCorrect <= 5 ?
+                    this.props.nextQuestion(0, 1)
+                    :
+                    this.props.nextQuestion(0, 25 - this.props.i)
+                    
+                )
+                
+                
             }
         } else {
             if (choice === this.props.correct){
