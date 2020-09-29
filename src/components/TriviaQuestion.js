@@ -8,10 +8,11 @@ class TriviaQuestion extends Component{
         correctAnswers: [],
         showAnswer: false, 
         choices: [],
-        newArr: false
+        newArr: false,
+        correct: []
     }
 
-    clickAnswer = () => {
+    clickAnswer = (choice) => {
         if (this.state.showAnswer === true){
             if (this.state.correct[this.state.correct.length - 1] === this.props.correct){
                 console.log('correct')
@@ -28,7 +29,7 @@ class TriviaQuestion extends Component{
                 
             }
         } else {
-            if (e.target.innerText === this.props.correct){
+            if (choice === this.props.correct){
                 console.log('correct')
                 this.setState({
                     showAnswer: true,
@@ -80,20 +81,13 @@ class TriviaQuestion extends Component{
 
     }
 
-    componentDidMount(){
-        this.setState({
-            correct: [],
-            showAnswer: false
-        })
-    }
-
     render(){
         this.mixUpArr()
         // console.log(this.props.choicesObj)
         return(
             <View>
-                <Text>{this.props.questionObj}</Text>
-                {this.state.choices.map(choice => <Choice choiceObj={choice} key={choice}/>)}
+                <Text>{this.props.question}</Text>
+                {this.state.choices.map(c => <Choice clickAnswer={this.clickAnswer} choiceObj={c} correct={this.props.correct} showAnswer={this.state.showAnswer} newArr={this.state.newArr}/>)}
             </View> 
         )
     }
