@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
 
 class Choice extends Component{
     state = {
@@ -37,11 +37,18 @@ class Choice extends Component{
     render(){
         // console.log(this.props)
         return(
-            <View >
-                <Text onPress={() => this.renderColor(this.props.choiceObj)} style={{backgroundColor: this.color()}}>{this.props.choiceObj}</Text>
+            <View style={{margin: 25, borderRadius: 25, borderWidth: 5, borderColor: '#000000', borderStyle: 'solid', backgroundColor: this.color()}}>
+                <Text onPress={() => this.renderColor(this.props.choiceObj)} style={{fontSize: 15, padding: 10, textAlign: 'center'}}>{this.props.choiceObj}</Text>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        borderStyle: 'solid',
+        borderColor: '#000000'
+    }
+});
 
 export default Choice

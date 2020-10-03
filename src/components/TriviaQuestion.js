@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet, ScrollView} from 'react-native';
 import Choice from './Choice'
 
 class TriviaQuestion extends Component{
@@ -96,17 +96,29 @@ class TriviaQuestion extends Component{
         this.mixUpArr()
         // console.log(this.state.choices, this.state.showAnswer)
         return(
-            <View>
-                <Text>{this.props.question}</Text>
+            <View >
+            
+                <Text style={styles.questions}>{this.props.question}</Text>
                 {/* <FlatList
                     data={this.state.choices}
                     key={}
                 /> */}
-                {this.state.choices.map(c => <Choice clickAnswer={this.clickAnswer} choiceObj={c} correct={this.props.correct} showAnswer={this.state.showAnswer} newArr={this.state.newArr} key={c}/>)}
+                
+
+                    {this.state.choices.map(c => <Choice clickAnswer={this.clickAnswer} choiceObj={c} correct={this.props.correct} showAnswer={this.state.showAnswer} newArr={this.state.newArr} key={c}/>)}
+                
             </View> 
         )
     }
     
 }
+
+const styles = StyleSheet.create({
+    questions: {
+        fontSize: 20,
+        textAlign: 'left',
+        padding: 10
+    },
+})
 
 export default TriviaQuestion
