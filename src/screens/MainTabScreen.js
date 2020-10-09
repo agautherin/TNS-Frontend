@@ -47,7 +47,7 @@ const MainTabScreen = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Question"
         component={QuestionsScreen}
         options={{
@@ -56,7 +56,7 @@ const MainTabScreen = () => {
             <MaterialCommunityIcons name="bell" color={color} size={26} />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }
