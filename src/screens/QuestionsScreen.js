@@ -18,6 +18,7 @@ class QuestionsScreen extends Component{
     componentDidMount(){
         
         fetch(`${HOST_WITH_PORT}/quiz`)
+        // fetch("http://localhost:3000/quiz")
         .then(res => res.json())
         .then(data => this.setState({trivia: data.question, takingQuiz: true}))
     }

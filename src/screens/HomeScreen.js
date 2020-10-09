@@ -3,6 +3,7 @@ import {View, Text, Button} from 'react-native';
 // import MyTabs from '../components/MyTabs'
 
 const HomeScreen = ({navigation}) => {
+    
     return(
         <View>
             {/* <MyTabs /> */}
