@@ -15,8 +15,7 @@ class QuestionsScreen extends Component{
         numberCorrect: 0
     }
 
-    componentDidMount(){
-        
+    takingQuiz =() => {
         fetch(`${HOST_WITH_PORT}/quiz`)
         // fetch("http://localhost:3000/quiz")
         .then(res => res.json())
@@ -27,7 +26,7 @@ class QuestionsScreen extends Component{
         this.setState({
             i: this.state.i += num2,
             numberCorrect: this.state.numberCorrect += num1
-        }, () => {})
+        })
     
     }
 
@@ -37,7 +36,7 @@ class QuestionsScreen extends Component{
             trivia: null,
             i: 0,
             numberCorrect: 0
-        }, () => {this.props.navigation.navigate('Trivia')})
+        })
     }
 
     render(){
@@ -68,7 +67,9 @@ class QuestionsScreen extends Component{
                         />
                     )
                     :
-                    null
+                    <TriviaScreen
+                        takingQuiz={this.takingQuiz}
+                    />
                 }
             </View>
         )

@@ -27,9 +27,10 @@ const MainTabScreen = () => {
           ),
         }}
       />
+
       <Tab.Screen
         name="Trivia"
-        component={TriviaScreen}
+        component={QuestionsScreen}
         options={{
           tabBarLabel: 'Trivia',
           tabBarIcon: ({ color }) => (
@@ -37,6 +38,7 @@ const MainTabScreen = () => {
           ),
         }}
       />
+
       <Tab.Screen
         name="Profile"
         component={UserScreen}
@@ -47,6 +49,7 @@ const MainTabScreen = () => {
           ),
         }}
       />
+      
       {/* <Tab.Screen
         name="Question"
         component={QuestionsScreen}

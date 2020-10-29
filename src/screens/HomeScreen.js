@@ -8,10 +8,7 @@ const HomeScreen = ({navigation}) => {
         <View>
             {/* <MyTabs /> */}
             <Text style={{color: '#00b300'}}>Welcome to the Next Street Mobile App.  This app will assist you with getting your permit and your license.</Text>
-            <Button 
-                title="Go to Trivia Screen"
-                onPress={() => navigation.navigate('Trivia')}
-            />
+            
         </View>
     )
 }

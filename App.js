@@ -44,7 +44,7 @@ const App = () => {
   return (
     <NavigationContainer >
       <Drawer.Navigator>
-        <Drawer.Screen name='Main Tab' component={MainTabScreen}/>
+        <Drawer.Screen name='Home' component={MainTabScreen}/>
       </Drawer.Navigator>
     </NavigationContainer>
 
